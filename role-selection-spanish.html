@@ -21,15 +21,16 @@
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-6">
         <form action="#" method="get" onsubmit="return redirectSurvey()">
-          <label for="role" class="form-text"><bold>Choose which best describes you:</bold></label><br><br>
-          <input type="radio" class="form-radio" name="role" value="consumer">
-          <label for="consumer" class="form-label">Business Supporter</label><br>
-          <p class="form-text">Join the Fun: Supporting Businesses That Value Me and Offer What I Love</p>
-          <input type="radio" class="form-radio" name="role" value="owner">
-          <label for="owner" class="form-label">Business Owner</label><br>
-          <p class="form-text">Let's Grow Together: Connecting with New and Existing Customers to Boost My Business</p>
-          <input type="submit" class="btn btn-primary mt-2 form-button" value="Next">
+          <label for="role" class="form-text"><b>Elige la opción que mejor te describe:</b></label><br><br>
+          <input type="radio" class="form-radio" id="spanish" name="role" value="consumer">
+          <label for="consumer" class="form-label">Apoyo a Negocios</label><br>
+          <p class="form-text">Únete a la Diversión: Apoyando a Negocios Que Me Valoran y Ofrecen lo Que Amo</p>
+          <input type="radio" class="form-radio" id="english" name="role" value="owner">
+          <label for="owner" class="form-label">Dueño de Negocio</label><br>
+          <p class="form-text">Crecemos Juntos: Conectando con Clientes Nuevos y Existentes para Impulsar Mi Negocio</p>
+          <input type="submit" class="btn btn-primary mt-2 form-button" value="Siguiente">
         </form>
+
         </div>
       </div>
     </div>
@@ -46,9 +47,9 @@
     function redirectSurvey() {
       var role = document.querySelector('input[name="role"]:checked').value;
       if (role === "consumer") {
-        window.location.href = "survey-business-supporter-english.html"; // Redirect to consumer English survey
+        window.location.href = "survey-business-supporter-spanish.html"; // Redirect to consumer English survey
       } else if (role === "owner") {
-        window.location.href = "survey-owner-english.html"; // Redirect to owner English survey
+        window.location.href = "survey-owner-spanish.html"; // Redirect to owner English survey
       }
       return false; // Prevent form submission
     }

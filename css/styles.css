@@ -1,0 +1,60 @@
+/* Center the form vertically and horizontally */
+body, html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sticky header styles */
+header {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Sticky footer styles */
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}
+
+/* Add spacing between elements */
+.spacer {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: none; /* Hide all form groups by default */
+}
+.active {
+  display: block; /* Show the active form group */
+}
+.form-label {
+  font-size: 1.15rem;
+}
+
+.form-radio {
+  transform: scale(1.25);
+  margin-right: 5px;
+}
+
+.form-text {
+  font-size: 1.15rem;
+}
+
+.form-button {
+  font-size: 1.15rem;
+}
+
+.form-container {
+  border: 2px solid #e9ecef; /* Secondary color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Box shadow for depth */
+}

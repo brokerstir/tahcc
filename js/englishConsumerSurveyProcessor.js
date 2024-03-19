@@ -32,12 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (firstName === '' || lastName === '' || email === '') {
       // Display validation message
-      emailValidation.textContent = "Please fill in all fields before proceeding.";
+      emailValidation.textContent = "Please fill in first, last name, and email before proceeding.";
       emailValidation.style.display = 'block';
-      // Hide validation message after 2 seconds
       setTimeout(() => {
         emailValidation.style.display = 'none';
-      }, 2000);
+      }, 2500);
       return false;
     }
 
@@ -47,10 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
       // Display validation message
       emailValidation.textContent = "Please enter a valid email address.";
       emailValidation.style.display = 'block';
-      // Hide validation message after 2 seconds
       setTimeout(() => {
         emailValidation.style.display = 'none';
-      }, 2000);
+      }, 2500);
       return false;
     }
 
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   nextBtns.forEach((btn, index) => {
     btn.addEventListener('click', function() {
-      const radioInputs = formGroups[currentStep].querySelectorAll('input[type="radio"]');
+      const radioInputs = formGroups[currentStep].querySelectorAll('input[type="radio"]:not(.exclude)');
       if (radioInputs.length > 0) {
         console.log("radioInputs length:", radioInputs.length)
         let isAnyOptionSelected = false;
@@ -73,14 +71,14 @@ document.addEventListener("DOMContentLoaded", function() {
           // Display validation message
           buttonValidation.textContent = "Please select an option before proceeding.";
           buttonValidation.style.display = 'block';
-          // Hide validation message after 2 seconds
           setTimeout(() => {
             buttonValidation.style.display = 'none';
-          }, 3000);
+          }, 2500);
           return;
         }
       } else {
         if (!validateInputs()) {
+        // if (false) {
         return;
       }
       }
@@ -95,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const q1Value = document.querySelector('input[name="question1"]:checked').value;
     const q2Value = document.querySelector('input[name="question2"]:checked').value;
     const q3Value = document.querySelector('input[name="question3"]:checked').value;
-    // const q4Value = document.querySelector('input[name="question4"]:checked').value;
     const language = document.querySelector('input[name="language"]').value;
     const role = document.querySelector('input[name="role"]').value;
     const firstName = document.querySelector('input[name="firstName"]').value;
@@ -103,12 +100,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const email = document.querySelector('input[name="email"]').value;
     const form = document.getElementById('multiStepForm');
     const profileDiv = document.getElementById('profile');
+    const profilePara = document.getElementById('profile-paragraph');
     const invitations = [
-      "Ready to explore and support our local businesses together? Join us at the chamber to discover hidden gems, connect with fellow enthusiasts, and make a positive impact in our community!",
-      "Craving delicious experiences and tasty adventures? Join us at the chamber to indulge in culinary delights, support local eateries, and join the foodie fun!",
-      "Passionate about empowerment and entrepreneurship? Join us at the chamber to gain new skills, network with like-minded individuals, and be part of positive change!",
-      "Love celebrating diversity and heritage? Join us at the chamber to immerse yourself in vibrant cultural experiences, connect with diverse communities, and spread joy!",
-      "Eager to make meaningful connections and explore our community? Join us at the chamber to meet new friends, discover local treasures, and create lasting memories!"
+      "Ready to explore and support our local businesses together? Join us at the chamber to discover hidden gems, connect with fellow enthusiasts, and make a positive impact in our community! ",
+      "Passionate about empowerment and entrepreneurship? Join us at the chamber to gain new skills, network with like-minded individuals, and be part of positive change! ",
+      "Love celebrating diversity and heritage? Join us at the chamber to immerse yourself in vibrant cultural experiences, connect with diverse communities, and spread joy! ",
+      "Eager to make meaningful connections and explore our community? Join us at the chamber to meet new friends, discover local treasures, and create lasting memories! "
     ];
     form.style.display = 'none';
 
@@ -118,26 +115,27 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("lastName:", lastName);
     console.log("email:", email);
 
+    const randomIndex = Math.floor(Math.random() * invitations.length);
+    const invite = [invitations[randomIndex]];
     const answer1 = [1, q1Value];
     const answer2 = [2, q2Value];
     const answer3 = [3, q3Value];
     const answers = [answer1.join(""), answer2.join(""), answer3.join("")]
     console.log("answers: ", answers)
-    displayChamberMessage(answers); 
+    displayChamberMessage(answers, invite);
 
-    function displayChamberMessage(answers) {
-      // Update the profileDiv innerHTML with the silly profile text
+    function displayChamberMessage(answers, invite) {
       const texts = answers.map(answer => getChamberMessage(answer));
-      const joinedText = texts.join(" ");
+      const joinedText = invite + texts.join(" ");
       console.log("profile:", joinedText);
-      profileDiv.innerHTML = joinedText;
+      profilePara.innerHTML = joinedText;
       profileDiv.style.display = 'block'; // Display the profile div
     }
     
     function getChamberMessage(answerCombo) {
         switch(answerCombo) {
             case '1a':
-                return "Your reliance on trusted recommendations speaks volumes about your community connections";
+                return "Your reliance on trusted recommendations speaks volumes about your community connections.";
             case '1b':
                 return "As a social media enthusiast, you're at the forefront of staying informed.";
             case '1c':
@@ -149,13 +147,13 @@ document.addEventListener("DOMContentLoaded", function() {
             case '2c':
                 return "Your commitment to community initiatives aligns with our chamber's mission.";
             case '3a':
-                return "Your interest in cultural festivals reflects a desire to celebrate diversity.";
+                return "And your interest in cultural festivals reflects a desire to celebrate diversity.";
             case '3b':
-                return "As a culinary enthusiast, you appreciate the richness of our local food scene.";
+                return "And as a culinary enthusiast, you appreciate the richness of our local food scene.";
             case '3c':
-                return "Your interest in workshops shows a passion for entrepreneurship and empowerment.";
+                return "And your interest in workshops shows a passion for entrepreneurship and empowerment.";
             default:
-                return "Invalid answer combination.";
+                return "";
         }
     }
   });
