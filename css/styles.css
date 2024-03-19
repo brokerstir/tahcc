@@ -36,20 +36,20 @@ footer {
   display: block; /* Show the active form group */
 }
 .form-label {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
 }
 
 .form-radio {
-  transform: scale(1.25);
+  transform: scale(1.35);
   margin-right: 5px;
 }
 
 .form-text {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
 }
 
 .form-button {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
 }
 
 .form-container {

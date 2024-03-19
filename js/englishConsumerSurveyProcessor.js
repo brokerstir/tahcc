@@ -95,9 +95,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const q3Value = document.querySelector('input[name="question3"]:checked').value;
     const language = document.querySelector('input[name="language"]').value;
     const role = document.querySelector('input[name="role"]').value;
+    const communication = document.querySelector('input[name="communication"]').value;
+    const updates = document.querySelector('input[name="updates"]').value;
     const firstName = document.querySelector('input[name="firstName"]').value;
     const lastName = document.querySelector('input[name="lastName"]').value;
     const email = document.querySelector('input[name="email"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
     const form = document.getElementById('multiStepForm');
     const profileDiv = document.getElementById('profile');
     const profilePara = document.getElementById('profile-paragraph');
@@ -114,6 +117,9 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("firstName:", firstName);
     console.log("lastName:", lastName);
     console.log("email:", email);
+    console.log("phone:", phone);
+    console.log("updates:", updates);
+    console.log("communication:", communication);
 
     const randomIndex = Math.floor(Math.random() * invitations.length);
     const invite = [invitations[randomIndex]];
@@ -121,8 +127,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const answer2 = [2, q2Value];
     const answer3 = [3, q3Value];
     const answers = [answer1.join(""), answer2.join(""), answer3.join("")]
+    const data = {
+      firstName : firstName,
+      lastName : lastName,
+      language : language,
+      role : role,
+      email : email,
+      phone : phone,
+      updates : updates,
+      communication : communication,
+      answers : answers
+    }
+
     console.log("answers: ", answers)
     displayChamberMessage(answers, invite);
+    submitToResponderAPI(data);
 
     function displayChamberMessage(answers, invite) {
       const texts = answers.map(answer => getChamberMessage(answer));
@@ -156,5 +175,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 return "";
         }
     }
+
+    function submitToResponderAPI(data) {
+      var URL = "https://33tey7z4r7.execute-api.us-east-1.amazonaws.com";
+      console.log("data: ", data)
+
+      $.ajax({
+       type: "POST",
+       url : "https://33tey7z4r7.execute-api.us-east-1.amazonaws.com/live",
+       dataType: "json",
+       crossDomain: "true",
+       contentType: "application/json; charset=utf-8",
+       data: JSON.stringify(data),
+       success: function () {
+         alert ("Sucess");
+       },
+       error: function () {
+         alert ("Error");
+       }});
+      }
   });
 });
