@@ -95,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const q3Value = document.querySelector('input[name="question3"]:checked').value;
     const language = document.querySelector('input[name="language"]').value;
     const role = document.querySelector('input[name="role"]').value;
-    const communication = document.querySelector('input[name="communication"]').value;
-    const updates = document.querySelector('input[name="updates"]').value;
+    const communication = document.querySelector('input[name="communication"]:checked').value;
+    const updates = document.querySelector('input[name="updates"]:checked').value;
     const firstName = document.querySelector('input[name="firstName"]').value;
     const lastName = document.querySelector('input[name="lastName"]').value;
     const email = document.querySelector('input[name="email"]').value;
@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById('multiStepForm');
     const profileDiv = document.getElementById('profile');
     const profilePara = document.getElementById('profile-paragraph');
+    const successDiv = document.getElementById('success-alert');
+    const dangerDiv = document.getElementById('danger-alert');
     const invitations = [
       "Ready to explore and support our local businesses together? Join us at the chamber to discover hidden gems, connect with fellow enthusiasts, and make a positive impact in our community! ",
       "Passionate about empowerment and entrepreneurship? Join us at the chamber to gain new skills, network with like-minded individuals, and be part of positive change! ",
@@ -130,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const data = {
       firstName : firstName,
       lastName : lastName,
-      language : language,
+      lang : language,
       role : role,
       email : email,
       phone : phone,
@@ -142,12 +144,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     console.log("answers: ", answers)
-    displayChamberMessage(answers, invite);
+    displayChamberMessage(answers, invite, firstName);
     submitToResponderAPI(data);
 
-    function displayChamberMessage(answers, invite) {
+    function displayChamberMessage(answers, invite, firstName) {
+      const greeting = "Thank you " + firstName + "! "
       const texts = answers.map(answer => getChamberMessage(answer));
-      const joinedText = invite + texts.join(" ");
+      const joinedText = greeting + invite + texts.join(" ");
       console.log("profile:", joinedText);
       profilePara.innerHTML = joinedText;
       profileDiv.style.display = 'block'; // Display the profile div
@@ -190,10 +193,12 @@ document.addEventListener("DOMContentLoaded", function() {
        contentType: "application/json; charset=utf-8",
        data: JSON.stringify(data),
        success: function () {
-         alert ("Sucess");
+         successDiv.style.display = 'block'
+         // alert ("Sucess");
        },
        error: function () {
-         alert ("Error");
+         dangerDiv.style.display = 'block'
+         // alert ("Error");
        }});
       }
   });

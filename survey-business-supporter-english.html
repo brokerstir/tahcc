@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creciendo Juntos</title>
+  <title>Survey</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -13,7 +17,7 @@
 <body>
   <!-- Sticky header -->
   <header>
-    <h1>Creciendo Juntos</h1>
+    <h1>We Grow Together</h1>
     <h3>Hispanic Chamber Survey</h3>
   </header>
 
@@ -23,84 +27,89 @@
       <div id="validation" class="alert alert-warning" style="display: none;" role="alert"></div>
       <div id="email-validation" class="alert alert-warning" style="display: none;" role="alert"></div>
       <div class="row justify-content-center">
-        <div class="col-md-12 col-lg-6">
-        <form id="multiStepForm">
-          <div class="form-group active">
-              <label for="question1" class="form-label">How do you prefer to learn about new businesses in your area?</label><br>
-              <input type="radio" id="q1Option1" name="question1" value="a" class="form-radio">
-              <label for="q1Option1" class="form-label">A</label><br>
-              <p class="form-text">Recommendations from friends, family, or trusted community members</p>
-              <input type="radio" id="q1Option2" name="question1" value="b" class="form-radio">
-              <label for="q1Option2" class="form-label">B</label><br>
-              <p class="form-text">Engaging with businesses on social media platforms to stay informed</p>
-              <input type="radio" id="q1Option3" name="question1" value="c" class="form-radio">
-              <label for="q1Option3" class="form-label">C</label><br>
-              <p class="form-text">Exploring online directories or listings featuring local businesses and services</p>
-              <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
-          </div>
-          <div class="form-group">
-              <label for="question2" class="form-label">What would make you more likely to join a chamber of commerce dedicated to supporting local businesses?</label><br>
-              <input type="radio" id="q2Option1" name="question2" value="a" class="form-radio">
-              <label for="q2Option1" class="form-label">A</label><br>
-              <p class="form-text">Access to exclusive discounts and promotions from member businesses</p>
-              <input type="radio" id="q2Option2" name="question2" value="b" class="form-radio">
-              <label for="q2Option2" class="form-label">B</label><br>
-              <p class="form-text">Opportunities to attend networking events and connect with fellow community members</p>
-              <input type="radio" id="q2Option3" name="question2" value="c" class="form-radio">
-              <label for="q2Option3" class="form-label">C</label><br>
-              <p class="form-text">Involvement in community initiatives and projects aimed at uplifting the local economy</p>
-              <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
-          </div>
-          <div class="form-group">
-              <label for="question3" class="form-label">Which type of community engagement events would interest you the most?</label><br>
-              <input type="radio" id="q3Option1" name="question3" value="a" class="form-radio">
-              <label for="q3Option1" class="form-label">A</label><br>
-              <p class="form-text">Cultural festivals and heritage celebrations honoring the diversity of our community</p>
-              <input type="radio" id="q3Option2" name="question3" value="b" class="form-radio">
-              <label for="q3Option2" class="form-label">B</label><br>
-              <p class="form-text">Food and beverage tastings highlighting the culinary richness of our local businesses</p>
-              <input type="radio" id="q3Option3" name="question3" value="c" class="form-radio">
-              <label for="q3Option3" class="form-label">C</label><br>
-              <p class="form-text">Workshops and seminars focused on empowering entrepreneurs and small business owners</p>
-              <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
-          </div>
-          <div class="form-group">
-              <label for="firstName" class="form-label">First Name:</label>
-              <input type="text" id="firstName" name="firstName" class="form-control">
-              <label for="lastName" class="form-label">Last Name:</label>
-              <input type="text" id="lastName" name="lastName" class="form-control">
-              <label for="phone" class="form-label">Phone <small><i>(optional)</i></small>:</label>
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="email" class="form-label">Email:</label>
-              <input type="email" id="email" name="email" class="form-control">
+        <div class="col-md-6">
+          <form id="multiStepForm">
+            <div class="form-group active">
+                <label for="question1" class="form-label">How do you prefer to learn about new businesses in your area?</label><br>
+                <input type="radio" id="q1Option1" name="question1" value="a" class="form-radio">
+                <label for="q1Option1" class="form-label">A</label><br>
+                <p class="form-text">Recommendations from friends, family, or trusted community members</p>
+                <input type="radio" id="q1Option2" name="question1" value="b" class="form-radio">
+                <label for="q1Option2" class="form-label">B</label><br>
+                <p class="form-text">Engaging with businesses on social media platforms to stay informed</p>
+                <input type="radio" id="q1Option3" name="question1" value="c" class="form-radio">
+                <label for="q1Option3" class="form-label">C</label><br>
+                <p class="form-text">Exploring online directories or listings featuring local businesses and services</p>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
+            </div>
+            <div class="form-group">
+                <label for="question2" class="form-label">What would make you more likely to join a chamber of commerce dedicated to supporting local businesses?</label><br>
+                <input type="radio" id="q2Option1" name="question2" value="a" class="form-radio">
+                <label for="q2Option1" class="form-label">A</label><br>
+                <p class="form-text">Access to exclusive discounts and promotions from member businesses</p>
+                <input type="radio" id="q2Option2" name="question2" value="b" class="form-radio">
+                <label for="q2Option2" class="form-label">B</label><br>
+                <p class="form-text">Opportunities to attend networking events and connect with fellow community members</p>
+                <input type="radio" id="q2Option3" name="question2" value="c" class="form-radio">
+                <label for="q2Option3" class="form-label">C</label><br>
+                <p class="form-text">Involvement in community initiatives and projects aimed at uplifting the local economy</p>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
+            </div>
+            <div class="form-group">
+                <label for="question3" class="form-label">Which type of community engagement events would interest you the most?</label><br>
+                <input type="radio" id="q3Option1" name="question3" value="a" class="form-radio">
+                <label for="q3Option1" class="form-label">A</label><br>
+                <p class="form-text">Cultural festivals and heritage celebrations honoring the diversity of our community</p>
+                <input type="radio" id="q3Option2" name="question3" value="b" class="form-radio">
+                <label for="q3Option2" class="form-label">B</label><br>
+                <p class="form-text">Food and beverage tastings highlighting the culinary richness of our local businesses</p>
+                <input type="radio" id="q3Option3" name="question3" value="c" class="form-radio">
+                <label for="q3Option3" class="form-label">C</label><br>
+                <p class="form-text">Workshops and seminars focused on empowering entrepreneurs and small business owners</p>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
+            </div>
+            <div class="form-group">
+                <label for="firstName" class="form-label">First Name:</label>
+                <input type="text" id="firstName" name="firstName" class="form-control">
+                <label for="lastName" class="form-label">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" class="form-control">
+                <label for="phone" class="form-label">Phone <small><i>(optional)</i></small>:</label>
+                <input type="text" id="phone" name="phone" class="form-control">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control">
 
-            <p class="form-text">Stay updated and enter in a chance to win a $50 gift certificate? <small><i>(you can unsubscribe to updates at anytime)</i></small></p>
-              <input type="radio" class="form-radio exclude" name="updates" value="yes" checked>
-              <label for="updates" class="form-label">Yes</label><br>
-              <input type="radio" class="form-radio exclude" name="updates" value="no">
-              <label for="updates" class="form-label">No
-              </label><br><br>
+              <p class="form-text">Stay updated and enter in a chance to win a $50 gift certificate? <small><i>(you can unsubscribe to updates at anytime)</i></small></p>
+                <input type="radio" class="form-radio exclude" name="updates" value="yes" checked>
+                <label for="updates" class="form-label">Yes</label><br>
+                <input type="radio" class="form-radio exclude" name="updates" value="no">
+                <label for="updates" class="form-label">No
+                </label><br><br>
 
-              <p class="form-text">Communication Preference:</p>
-              <input type="radio" class="form-radio exclude" name="communication" value="email" checked>
-              <label for="communication" class="form-label">Email</label><br>
-              <input type="radio" class="form-radio exclude" name="communication" value="text">
-              <label for="communication" class="form-label">Text
-              </label><br><br>
+                <p class="form-text">Communication Preference:</p>
+                <input type="radio" class="form-radio exclude" name="communication" value="email" checked>
+                <label for="communication" class="form-label">Email</label><br>
+                <input type="radio" class="form-radio exclude" name="communication" value="text">
+                <label for="communication" class="form-label">Text
+                </label><br><br>
 
-              <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Next</button>
+            </div>
+            <p id="finalStep" style="display: none;" class="form-text">Are you ready to connect with local businesses and support the Hispanic community?</p>
+            <input type="hidden" name="language" value="english">
+            <input type="hidden" name="role" value="business_supporter">
+            <button type="submit" class="btn btn-success mt-3 form-button" style="display: none;">Submit</button>
+          </form>
+          <div class="alert alert-success" style="display: none;" role="alert" id="success-alert">
+            We appreciate your input. Your response has been recorded. We'll be in touch because we'd love to have you join us!
           </div>
-          <p id="finalStep" style="display: none;" class="form-text">Are you ready to connect with local businesses and support the Hispanic community?</p>
-          <input type="hidden" name="language" value="english">
-          <input type="hidden" name="role" value="business_supporter">
-          <button type="submit" class="btn btn-success mt-3 form-button" style="display: none;">Submit</button>
-        </form>
-
-        <div id="profile" style="display: none;">
-          <h3>We Want You!</h3>
-          <p id="profile-paragraph">
-          </p>
-        </div>
+          <div class="alert alert-danger" style="display: none;" role="alert" id="danger-alert">
+            Ugh! The server hit a snag. We'd appreciate it if you'd try again in a few minutes. 
+          </div>
+          <div id="profile" style="display: none;">
+            <h3>We Want You!</h3>
+            <p id="profile-paragraph">
+            </p>
+          </div>
         </div>
       </div>
     </div>
