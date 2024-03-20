@@ -136,7 +136,9 @@ document.addEventListener("DOMContentLoaded", function() {
       phone : phone,
       updates : updates,
       communication : communication,
-      answers : answers
+      answer1 : answer1.join(""),
+      answer2 : answer2.join(""),
+      answer3 : answer3.join(""),
     }
 
     console.log("answers: ", answers)
