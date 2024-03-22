@@ -112,6 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
       "Love celebrating diversity and heritage? Join us at the chamber to immerse yourself in vibrant cultural experiences, connect with diverse communities, and spread joy! ",
       "Eager to make meaningful connections and explore our community? Join us at the chamber to meet new friends, discover local treasures, and create lasting memories! "
     ];
+    const invitationsSp = [
+      "¡Únete a la nueva cámara de comercio hispana y forma parte de una comunidad vibrante y próspera! ",
+      "Te invitamos cordialmente a formar parte de la cámara de comercio hispana y ser parte del crecimiento empresarial local. ",
+      "¡Descubre las infinitas oportunidades de crecimiento al unirte a la cámara de negocios hispana hoy mismo! ",
+      "Únete a nosotros en la cámara de comercio hispana y sé parte de un movimiento que impulsa el éxito empresarial en nuestra comunidad. "
+    ];
     form.style.display = 'none';
 
     console.log("Language:", language);
@@ -124,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("communication:", communication);
 
     const randomIndex = Math.floor(Math.random() * invitations.length);
-    const invite = [invitations[randomIndex]];
     const answer1 = [1, q1Value];
     const answer2 = [2, q2Value];
     const answer3 = [3, q3Value];
@@ -143,13 +148,27 @@ document.addEventListener("DOMContentLoaded", function() {
       answer3 : answer3.join(""),
     }
 
-    console.log("answers: ", answers)
-    displayChamberMessage(answers, invite, firstName);
+    if (language == "english") {
+      const invite = [invitations[randomIndex]];
+      displayChamberMessage(answers, invite, firstName);
+    } else {
+      const invite = [invitationsSp[randomIndex]];
+      displayChamberMessageSp(answers, invite, firstName);
+    }
     submitToResponderAPI(data);
 
     function displayChamberMessage(answers, invite, firstName) {
       const greeting = "Thank you " + firstName + "! "
       const texts = answers.map(answer => getChamberMessage(answer));
+      const joinedText = greeting + invite + texts.join(" ");
+      console.log("profile:", joinedText);
+      profilePara.innerHTML = joinedText;
+      profileDiv.style.display = 'block'; // Display the profile div
+    }
+
+    function displayChamberMessageSp(answers, invite, firstName) {
+      const greeting = "Gracias " + firstName + "! "
+      const texts = answers.map(answer => getChamberMessageSp(answer));
       const joinedText = greeting + invite + texts.join(" ");
       console.log("profile:", joinedText);
       profilePara.innerHTML = joinedText;
@@ -180,6 +199,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 return "";
         }
     }
+
+    function getChamberMessageSp(answerCombo) {
+      switch(answerCombo) {
+          case '1a':
+              return "Tu confianza en recomendaciones confiables habla mucho sobre tus conexiones comunitarias.";
+          case '1b':
+              return "Como entusiasta de las redes sociales, estás a la vanguardia de mantenerte informado.";
+          case '1c':
+              return "Tu preferencia por directorios en línea resalta tu ingenio y recursos.";
+          case '2a':
+              return "Tu interés en descuentos exclusivos muestra tu deseo de apoyar a las empresas locales.";
+          case '2b':
+              return "Como conectador social, eres un activo invaluable para nuestra cámara.";
+          case '2c':
+              return "Tu compromiso con iniciativas comunitarias se alinea con la misión de nuestra cámara.";
+          case '3a':
+              return "Y tu interés en festivales culturales refleja un deseo de celebrar la diversidad.";
+          case '3b':
+              return "Y como entusiasta culinario, aprecias la riqueza de nuestra escena gastronómica local.";
+          case '3c':
+              return "Y tu interés en talleres muestra una pasión por el emprendimiento y el empoderamiento.";
+          default:
+              return "";
+      }
+    }
+
 
     function submitToResponderAPI(data) {
       var URL = "https://33tey7z4r7.execute-api.us-east-1.amazonaws.com";
