@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <!-- Sticky header -->
+  <header>
+    <h1>We Grow Together</h1>
+    <h3>Hispanic Chamber Survey</h3>
+  </header>
+
+  <!-- Form container -->
+  <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="form-container">
+      <div id="validation" class="alert alert-warning" style="display: none;" role="alert"></div>
+      <div id="email-validation" class="alert alert-warning" style="display: none;" role="alert"></div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form id="multiStepForm">
+            <div class="form-group active">
+                <label for="question1" class="form-label">¿Cómo prefieres enterarte de nuevos negocios en tu área?</label><br>
+                <input type="radio" id="q1Option1" name="question1" value="a" class="form-radio">
+                <label for="q1Option1" class="form-label">A</label><br>
+                <p class="form-text">Recomendaciones de amigos, familiares o miembros de confianza de la comunidad</p>
+                <input type="radio" id="q1Option2" name="question1" value="b" class="form-radio">
+                <label for="q1Option2" class="form-label">B</label><br>
+                <p class="form-text">Interactuar con negocios en plataformas de redes sociales para estar informado</p>
+                <input type="radio" id="q1Option3" name="question1" value="c" class="form-radio">
+                <label for="q1Option3" class="form-label">C</label><br>
+                <p class="form-text">Explorar directorios en línea o listados de negocios y servicios locales</p>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Siguiente</button>
+            </div>
+            <div class="form-group">
+                <label for="question2" class="form-label">¿Qué te haría más propenso a unirte a una cámara de comercio dedicada a apoyar a los negocios locales?</label><br>
+                <input type="radio" id="q2Option1" name="question2" value="a" class="form-radio">
+                <label for="q2Option1" class="form-label">A</label><br>
+                <p class="form-text">Acceso a descuentos exclusivos y promociones de negocios miembros</p>
+                <input type="radio" id="q2Option2" name="question2" value="b" class="form-radio">
+                <label for="q2Option2" class="form-label">B</label><br>
+                <p class="form-text">Oportunidades para asistir a eventos de networking y conectarse con otros miembros de la comunidad</p>
+                <input type="radio" id="q2Option3" name="question2" value="c" class="form-radio">
+                <label for="q2Option3" class="form-label">C</label><br>
+                <p class="form-text">Participación en iniciativas comunitarias y proyectos dirigidos a fortalecer la economía local</p>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Siguiente</button>
+            </div>
+            <div class="form-group">
+                <label for="question3" class="form-label">¿Qué tipo de eventos de participación comunitaria te interesarían más?</label><br>
+                <input type="radio" id="q3Option1" name="question3" value="a" class="form-radio">
+                <label for="q3Option1" class="form-label">A</label><br>
+                <p class="form-text">Festivales culturales y celebraciones de herencia en honor a la diversidad de nuestra comunidad</p>
+                <input type="radio" id="q3Option2" name="question3" value="b" class="form-radio">
+                <label for="q3Option2" class="form-label">B</label><br>
+                <p class="form-text">Degustaciones de alimentos y bebidas que resaltan la riqueza culinaria de nuestros negocios locales</p>
+                <input type="radio" id="q3Option3" name="question3" value="c" class="form-radio">
+                <label for="q3Option3" class="form-label">C</label><br>
+                <p class="form-text">Talleres y seminarios enfocados en empoderar a emprendedores y dueños de pequeños negocios</p>
+                <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Siguiente</button>
+            </div>
+            <div class="form-group">
+              <label for="firstName" class="form-label">Nombre:</label>
+              <input type="text" id="firstName" name="firstName" class="form-control">
+              <label for="lastName" class="form-label">Apellido:</label>
+              <input type="text" id="lastName" name="lastName" class="form-control">
+              <label for="phone" class="form-label">Teléfono <small><i>(opcional)</i></small>:</label>
+              <input type="text" id="phone" name="phone" class="form-control">
+              <label for="email" class="form-label">Correo electrónico:</label>
+              <input type="email" id="email" name="email" class="form-control">
+
+              <p class="form-text">¿Deseas mantenerte actualizado y participar para ganar un certificado de regalo de $50? <small><i>(puedes cancelar la suscripción a las actualizaciones en cualquier momento)</i></small></p>
+              <input type="radio" class="form-radio exclude" name="updates" value="yes" checked>
+              <label for="updates" class="form-label">Sí</label><br>
+              <input type="radio" class="form-radio exclude" name="updates" value="no">
+              <label for="updates" class="form-label">No
+              </label><br><br>
+
+              <p class="form-text">Preferencia de comunicación:</p>
+              <input type="radio" class="form-radio exclude" name="communication" value="email" checked>
+              <label for="communication" class="form-label">Correo electrónico</label><br>
+              <input type="radio" class="form-radio exclude" name="communication" value="text">
+              <label for="communication" class="form-label">Mensaje de texto
+              </label><br><br>
+
+              <button type="button" class="btn btn-primary mt-2 nextBtn form-button">Siguiente</button>
+            </div>
+            <p id="finalStep" style="display: none;" class="form-text">¿Estás listo para conectarte con negocios locales y apoyar a la comunidad hispana?</p>
+            <input type="hidden" name="language" value="spanish">
+            <input type="hidden" name="role" value="business_supporter">
+            <button type="submit" class="btn btn-success mt-3 form-button" style="display: none;">Enviar</button>
+          </form>
+          <div class="alert alert-success" style="display: none;" role="alert" id="success-alert">
+            Apreciamos su aporte. Su respuesta ha sido registrada. ¡Estaremos en contacto porque nos encantaría que te unas a nosotros!
+          </div>
+          <div class="alert alert-danger" style="display: none;" role="alert" id="danger-alert">
+            ¡Puaj! El servidor tuvo un problema. Le agradeceríamos que volviera a intentarlo en unos minutos.
+          </div>
+          <div id="profile" style="display: none;">
+            <h3>¡Te queremos!</h3>
+            <p id="profile-paragraph">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky footer -->
+  <footer>
+    <p>Smooth Surveys Powered by <a href="https://woogem.com">WooGem LLC</a></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/englishConsumerSurveyProcessor.js"></script>
+</body>
+</html>
